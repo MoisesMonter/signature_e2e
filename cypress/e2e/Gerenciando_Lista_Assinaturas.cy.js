@@ -13,9 +13,9 @@ describe('Testes de Gerenciamento', () => {
   })
 
   it('Verificando seus filtros', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.contains("Abertas").click()
     cy.wait(1500)
     cy.contains("Finalizados").click()
@@ -26,11 +26,11 @@ describe('Testes de Gerenciamento', () => {
 
   it('Caminho Lógico da Criação de uma Lista de Assinaturas', () => {
     //Time-life-creation 1-
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.contains("Criar Nova Lista").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#input_title").type(ambiente_teste)
     cy.get("#input_description").type('teste1 texto')
     cy.get("#input_date").click().type('2026-11-25')
@@ -39,20 +39,20 @@ describe('Testes de Gerenciamento', () => {
     cy.get("#input_password1").type(senha)
     cy.get("#input_password2").type(senha)
     cy.get("#button_Voltar").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#button_Avançar").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#button_Criar").click()
     //Time-Life-creation-3
     cy.contains("Fechar").click()
   })
     
   it('Testando Life_time_campos_obrigatórios_vazios', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.contains("Criar Nova Lista").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#input_date").click().type('2026-11-25')
     cy.contains("Avançar").click()
     cy.contains("O título não pode estar vazio.").should('exist')
@@ -71,18 +71,20 @@ describe('Testes de Gerenciamento', () => {
   })
 
   it('Testando configuração de uma lista criada', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+    cy.wait(1500)
     cy.get("[id='input_editar']").click();
   })
 
   it('Atualizando titulo de uma lista criada', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+    cy.wait(1500)
     cy.get("[id='input_editar']").click();
     cy.get("#input_title").clear().type(ambiente_teste+'3')
     cy.contains("Atualizar").click("")
@@ -90,10 +92,11 @@ describe('Testes de Gerenciamento', () => {
   })
 
   it('Atualizando Descrição de uma lista criada', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+    cy.wait(1500)
     cy.get("[id='input_editar']").click();
     cy.get("#input_description").clear().type('123133')
     cy.contains("Atualizar").click("")
@@ -101,10 +104,11 @@ describe('Testes de Gerenciamento', () => {
   })
 
   it('Lista criada -  Assinatura do usuário a Lista.', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+    cy.wait(1500)
     cy.get("[id='input_editar']").click();
     cy.contains("Acessar Pagina").click()
     cy.contains("Confirme").click()
@@ -113,61 +117,65 @@ describe('Testes de Gerenciamento', () => {
 
 
   it('Lista criada - Deletar usuário inscrito.', () => {
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get("#Management").click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+      cy.wait(1500)
       cy.get("[id='input_editar']").click();
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get('#Moisés_delete').click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.contains("Sucesso").should('exist')
     })
 
   it('Atualizando a lista criada - Descartar.', () => {
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get("#Management").click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+      cy.wait(1500)
       cy.get("[id='input_editar']").click();
-      cy.wait(4500)
+      cy.wait(1500)
       cy.contains('Descartar').click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.contains("Cancelar").click()
       cy.wait(1500)
       cy.contains("Descartar").click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.contains("OK").click()
       cy.contains("Sucesso").should('exist')
     })
 
   it('Atualizando a lista criada - Resgatar.', () => {
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get("#Management").click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+      cy.wait(1500)
       cy.get("[id='input_editar']").click();
-      cy.wait(4500)
+      cy.wait(1500)
       cy.get("div[id='button_Resgatar']").click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.contains("Cancelar").click()
       cy.get("div[id='button_Resgatar']").click()
-      cy.wait(4500)
+      cy.wait(1500)
       cy.contains("OK").click()
       cy.contains("Sucesso").should('exist')
     })
 
   it('Atualizando a lista criada - Concluir.', () => {
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get("#Management").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
+    cy.wait(1500)
     cy.get("[id='input_editar']").click();
     cy.contains("Concluir").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.contains("Cancelar").click()
     cy.contains("Concluir").click()
-    cy.wait(4500)
+    cy.wait(1500)
     cy.contains("OK").click()
     cy.contains("Sucesso").should('exist')
   })
