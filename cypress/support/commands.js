@@ -23,15 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
+let url_base = "https://8426-191-37-210-25.ngrok-free.app"
 Cypress.Commands.add('login', () => {
-  cy.viewport(1600, 900)
-  cy.visit(process.env.CYPRESS_BASE_URL);
-  cy.getCookie("auth_jrf").should("be.null");
+  cy.viewport(1600, 900);
+  cy.visit(url_base); 
+  cy.wait(1500)
+  cy.get('body').then(($body) => {
+    if ($body.find('button:contains("Visit Site")').length > 0) {
+      cy.get('button:contains("Visit Site")').click();
+    }
+  });
+  cy.wait(1500)
+  cy.getCookie('auth_jrf').should('be.null');
   cy.get('#logout').click();
-  cy.contains("Google").click();
-  cy.visit(process.env.CYPRESS_BASE_URL);
-})
+  cy.contains('Google').click(); 
+  cy.visit(url_base); 
+});
 
 
 Cypress.Commands.add('dragAndDrop', (sourceSelector, targetSelector) => {

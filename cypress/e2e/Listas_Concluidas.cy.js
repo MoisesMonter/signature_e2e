@@ -14,7 +14,7 @@ describe('Testes de Gerenciamento', () => {
   it('Efeturando download da Lista Concluída',()=>{
       cy.wait(2000)
       cy.get("#Transparence").click()
-      cy.get("#123133_2").click()
+      cy.get("#12313_39").click()
       cy.wait(2000)
       cy.get("#button_captura").click()
   })
