@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Cypress 14 funciona bien con Node 18
+          node-version: '18'
           cache: 'npm'
 
       - name: Install Dependencies
@@ -27,10 +27,9 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          headless: true
-          # Si tienes una app que necesita correr, descomenta esto:
-          start: npx expo start
-          wait-on: 'http://localhost:8081'
+          start: npm start  # Inicia o Expo
+          wait-on: 'http://localhost:8081'  # Espera o Expo estar disponível (padrão do Expo é 8081)
+          wait-on-timeout: 120000  # 120 segundos de timeout
 
       - name: Upload Screenshots on Failure
         uses: actions/upload-artifact@v4
@@ -38,3 +37,4 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+          retention-days: 7
