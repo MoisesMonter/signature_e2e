@@ -26,11 +26,11 @@
 
 Cypress.Commands.add('login', () => {
   cy.viewport(1600, 900)
-  cy.visit('http://localhost:8081');
+  cy.visit(process.env.CYPRESS_BASE_URL);
   cy.getCookie("auth_jrf").should("be.null");
   cy.get('#logout').click();
   cy.contains("Google").click();
-  cy.visit('http://localhost:8081');
+  cy.visit(process.env.CYPRESS_BASE_URL);
 })
 
 

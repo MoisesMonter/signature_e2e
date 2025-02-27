@@ -12,7 +12,8 @@
   "type": "commonjs",
   "devDependencies": {
     "cypress": "^14.0.3",
-    "cypress-plugin-tab": "^1.0.5"
+    "cypress-plugin-tab": "^1.0.5",
+    "dotenv": "^16.4.7"
   },
   "dependencies": {
     "cypress-real-events": "^1.14.0"
