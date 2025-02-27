@@ -75,7 +75,7 @@ describe('Testes de Gerenciamento', () => {
     cy.get("#Management").click()
     cy.wait(4500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-    cy.get("#input_editar").click()
+    cy.get("[id='input_editar']").click();
   })
 
   it('Atualizando titulo de uma lista criada', () => {
@@ -83,7 +83,7 @@ describe('Testes de Gerenciamento', () => {
     cy.get("#Management").click()
     cy.wait(4500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-    cy.get("#input_editar").click()
+    cy.get("[id='input_editar']").click();
     cy.get("#input_title").clear().type(ambiente_teste+'3')
     cy.contains("Atualizar").click("")
     cy.contains("Sucesso").should('exist')
@@ -94,7 +94,7 @@ describe('Testes de Gerenciamento', () => {
     cy.get("#Management").click()
     cy.wait(4500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-    cy.get("#input_editar").click()
+    cy.get("[id='input_editar']").click();
     cy.get("#input_description").clear().type('123133')
     cy.contains("Atualizar").click("")
     cy.contains("Sucesso").should('exist')
@@ -105,7 +105,7 @@ describe('Testes de Gerenciamento', () => {
     cy.get("#Management").click()
     cy.wait(4500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-    cy.get("#input_editar").click()
+    cy.get("[id='input_editar']").click();
     cy.contains("Acessar Pagina").click()
     cy.contains("Confirme").click()
     cy.contains("Sucesso").should('exist')
@@ -117,7 +117,7 @@ describe('Testes de Gerenciamento', () => {
       cy.get("#Management").click()
       cy.wait(4500)
       cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-      cy.get("#input_editar").click()
+      cy.get("[id='input_editar']").click();
       cy.wait(4500)
       cy.get('#Moisés_delete').click()
       cy.wait(4500)
@@ -129,7 +129,7 @@ describe('Testes de Gerenciamento', () => {
       cy.get("#Management").click()
       cy.wait(4500)
       cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-      cy.get("#input_editar").click()
+      cy.get("[id='input_editar']").click();
       cy.wait(4500)
       cy.contains('Descartar').click()
       cy.wait(4500)
@@ -146,7 +146,7 @@ describe('Testes de Gerenciamento', () => {
       cy.get("#Management").click()
       cy.wait(4500)
       cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-      cy.get("#input_editar").click()
+      cy.get("[id='input_editar']").click();
       cy.wait(4500)
       cy.get("div[id='button_Resgatar']").click()
       cy.wait(4500)
@@ -162,7 +162,7 @@ describe('Testes de Gerenciamento', () => {
     cy.get("#Management").click()
     cy.wait(4500)
     cy.get('input[placeholder="Digite um Titulo"]').type(ambiente_teste)
-    cy.get("#input_editar").click()
+    cy.get("[id='input_editar']").click();
     cy.contains("Concluir").click()
     cy.wait(4500)
     cy.contains("Cancelar").click()
