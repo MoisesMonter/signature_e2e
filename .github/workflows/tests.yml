@@ -33,7 +33,7 @@ jobs:
           wait-on: 'http://localhost:8081'
 
       - name: Upload Screenshots on Failure
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
