@@ -9,7 +9,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,13 +24,8 @@ jobs:
 
       - name: Cypress Run
         uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_VIEWPORT_WIDTH: 1600
+          CYPRESS_VIEWPORT_HEIGHT: 900
         with:
           browser: chrome
-
-      - name: Upload Screenshots on Failure
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          retention-days: 7
